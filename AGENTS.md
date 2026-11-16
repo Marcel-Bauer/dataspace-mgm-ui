@@ -221,6 +221,7 @@ npx nx affected -t lint typecheck test build check-api
 npx nx run <module>-core:generate-api      # regenerate types from specs/<module>/openapi.yaml
 npx nx run <module>-core:check-api         # fails if generated types are stale
 VITE_USE_MOCKS=true npm start              # mock mode: in-memory adapters, no backend, no BFF (VITE_MOCK_PERSON=<key>)
+npm run mock -- [dev|preview] [-p <person>] [-P <port>] [-b]   # the same as a local deployment (scripts/local-mock.sh)
 .claude/skills/create-mockup/scripts/mockup.py check <feature>    # mockup rules; status <feature> --ready before the POC
 ```
 
