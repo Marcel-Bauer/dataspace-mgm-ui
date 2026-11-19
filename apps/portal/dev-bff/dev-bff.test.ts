@@ -24,6 +24,7 @@
  * Assisted-By: Claude Code (claude-opus-5-5)
  ********************************************************************************/
 
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { PERSON_COOKIE, claimsOf, devBffOptions, meOf, personFrom, safeReturnTo } from './dev-bff';
 
@@ -74,7 +75,7 @@ describe('dev BFF', () => {
       realm: 'CX-Central',
       token: undefined,
       tokenCommand: undefined,
-      serviceDir: '/w/dataspace-mgm-service',
+      serviceDir: join('/w/ui', '..', 'dataspace-mgm-service'),
     });
     expect(devBffOptions({ DEV_BFF_API_URL: 'http://localhost:8001/', DEV_BFF_REALM: 'CX-Central-B' }, '/w/ui')).toMatchObject({
       apiUrl: 'http://localhost:8001',

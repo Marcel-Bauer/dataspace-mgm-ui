@@ -24,12 +24,12 @@
 #################################################################################
 
 product: "dataspace-mgm"
-leadingRepository: "https://github.com/eclipse-tractusx/dataspace-mgm-service"
+leadingRepository: "https://github.com/eclipse-tractusx/dataspace-mgm-services"
 repoCategory: "product"
 repositories:
-  - name: "dataspace-mgm-service"
+  - name: "dataspace-mgm-services"
     usage: "Eclipse Tractus-X Data Space Management Service - backend of the new portal (OSP 2.0)"
-    url: "https://github.com/eclipse-tractusx/dataspace-mgm-service"
+    url: "https://github.com/eclipse-tractusx/dataspace-mgm-services"
   - name: "dataspace-mgm-ui"
     usage: "Eclipse Tractus-X Data Space Management UI - user interface of the new portal"
     url: "https://github.com/eclipse-tractusx/dataspace-mgm-ui"
