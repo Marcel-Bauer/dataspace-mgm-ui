@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Automated GitHub Actions CI workflow for linting, TypeScript typechecking, unit test execution, and production asset bundle builds on PRs and pushes to main/develop (`.github/workflows/tests.yml`).
+- Metadata update in `.tractusx` aligning repository references with `dataspace-mgm-services` (TRG 2.05).
+
 - `scripts/local-mock.sh` (`npm run mock`): runs the portal locally on mock data without backend, BFF or Docker, as the dev server with hot reload or as the production build served by `vite preview`, with a test person, a port and a detached mode (`status`, `logs`, `stop`)
 - Tables on MUI X Data Grid community (`DataTable` in `ui-mui`) with a Cards | Table toggle; Application review with a status dashboard, a two-column detail page and a decision panel; Access control in the style of the wallet pages; in mock mode, applications submitted in onboarding reach Application review and its decision reaches the applicant
 - Mock mode: the preview person `demo` (Erika Mustermann, Company Admin of Beispiel Maschinenbau GmbH) that `npm run start:mock` signs in, so company profile, company and technical users, credentials and the dataspace wallet show their fixtures; the onboarding wallet dialog shows the OpenID4VP request of the EBW-Connector as a QR code and, in mock mode, the approvals in the wallet one by one before the company data opens prefilled
@@ -27,6 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Notifications from C11-M1: the core package `c11-m1-core` (types generated from `specs/c11-m1/openapi.yaml`, one use case per operation, `followInbox` for the live inbox over Server-Sent Events with `Last-Event-ID` reconnect), the notification bell with the unread count and the newest notifications, and the page Notifications in the left menu, laid out like a mail client (the list of the inbox and the selected notification with its content side by side), with views (all, unread, tasks, information), marking as read or unread and hiding on each line of the list, all updated live without polling, in English and German
 
 ### Fixed
+
+- Cross-platform path resolution in `dev-bff.test.ts` ensuring test suite succeeds reliably across POSIX and Windows environments.
 
 - A feature opened from the sidebar loads its translations; it showed raw keys (for example Participant management) until the page was reloaded
 - The container image takes the Alpine security fixes published after its base image was built (Trivy: CRITICAL/HIGH in brotli, curl, expat and zlib), and `DEPENDENCIES` lists `sass` and its dependencies
