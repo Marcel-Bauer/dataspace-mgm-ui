@@ -37,6 +37,18 @@ and the environment chip in the header says **mock data**. `VITE_MOCK_PERSON=<ke
 The C4-M1 credential personas use `wallets-erika`, `wallets-max`, `wallets-otto` and `wallets-rolf`; the unprefixed
 personas are used by C1-M2 Registration.
 
+`npm run mock` ([scripts/local-mock.sh](../../scripts/local-mock.sh)) wraps this for a local deployment on mock data:
+
+```bash
+npm run mock                                  # dev server, hot reload, person demo → http://localhost:4200
+npm run mock -- preview                       # production build with mocks, vite preview → http://localhost:4300
+npm run mock -- dev -p otto -P 4370 -b        # another person and port, detached (log in tmp/local-mock/)
+npm run mock -- status | logs -P 4370 | stop -P 4370 | persons
+```
+
+The browser keeps the person of its last session (sessionStorage `portal.mock.person`), which wins over `--person`:
+open a new tab after changing it.
+
 Runtime configuration comes from `/config.json` (see [docs/architecture](../../docs/architecture/README.md)). Without it
 the defaults of [src/config/index.ts](src/config/index.ts) apply. For a local override copy
 `config.example.json` to `public/config.json` (ignored by git).
